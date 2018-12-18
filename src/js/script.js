@@ -32,13 +32,12 @@ function game() {
   
   addCrs();
   addThug1();
-  
 };
 
 
 function addCrs() {
   var crs=oxo.elements.createElement({
-      class: 'game__crs',
+      class: 'game__enemy--crs',
       styles: {
         transform:
           'translate(' +
@@ -52,22 +51,46 @@ function addCrs() {
     setTimeout(addCrs, 2000);
   };
 
-  function addThug1() {
-    var thug1=oxo.elements.createElement({
-        class: 'game__thug1',
-        styles: {
-          transform:
-            'translate(' +
-            oxo.utils.getRandomNumber(0, xSquares -1) * sizeEnemy +
-            'px, ' +
-            oxo.utils.getRandomNumber(0, ySquares -1) * sizeEnemy +
+function addThug1() {
+  var thug1=oxo.elements.createElement({
+      class: 'game__enemy--thug1',
+      styles: {
+        transform:
+          'translate(' +
+          oxo.utils.getRandomNumber(0, xSquares -1) * sizeEnemy +
+          'px, ' +
+          oxo.utils.getRandomNumber(0, ySquares -1) * sizeEnemy +
             'px)',
-        },
-      });
-      setTimeout(addThug1, 3000);
-    };
+      },
+    });
+    setTimeout(addThug1, 3000);
+};
 
-//     function moveDown(){
-//       var down = document.getElementsByClassName('game__crs');
-// oxo.animation.move(down, 'down', 10); // Move 10px to the right
-//     }
+  var yellowM;
+  var crs;
+  oxo.elements.onCollisionWithElementOnce(yellowM, ennemy, function() {
+  // Character is touched by ennemy
+  console.log("prout")
+});
+
+
+
+
+
+
+
+
+
+  //  function moveDown(){
+  //  var ennemy = document.getElementsByClassName('game__enemy--crs');
+  //   for (let i = 0; i < game__enemy--crs.length; i++) {
+  //    speed = game__enemy--crs[i].dataset.speed;
+  //    game__enemy--crs[i].style.transitionDuration = speed+ "s";
+  //  }
+  
+
+
+
+
+
+    

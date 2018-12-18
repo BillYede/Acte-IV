@@ -4,42 +4,30 @@
   height: 80px;
 }
 
+  .game__enemy--crs {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-image: url("../media/character/crs.png");
+  }
 
-.game__crs {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background-image: url("../media/character/crs.png");
-  background-size: cover;
-}
+  .game__enemy--thug1 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-image: url('../media/character/casseurs.png');
+  }
 
-.game__thug1 {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background-image: url('../media/character/casseurs.png');
-  background-size: cover;
-}
+  .game__enemy game__enemy--thug2 {
+    background-image: url('../media/character/casseurs2.png');
+  }
 
-.game__thug2 {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background-image: url('../media/character/casseurs2.png');
-  background-size: cover;
-}
+  .game__enemy game__enemy--trash1 {
+    background-image: url("../media/obstacles/trash1.png");
+  }
 
-.game__trash1 {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background-image: url("../media/obstacles/trash1.png");
-  background-size: cover;
-}
-
-.game__trash2 {
-  width: 80px;
-  height: 80px;
-  background-image: url("../media/obstacles/trash2.png");
-  background-size: cover;
-}
+  .game__enemy game__enemy--trash2 {
+    background-image: url("../media/obstacles/trash2.png");
+  }

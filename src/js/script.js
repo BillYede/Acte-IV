@@ -30,8 +30,10 @@ function game() {
 
   oxo.animation.moveElementWithArrowKeys(yellowM, speed); // Move the character
   
+  
   addCrs();
   addThug1();
+  
 };
 
 
@@ -66,12 +68,14 @@ function addThug1() {
     setTimeout(addThug1, 3000);
 };
 
-  var yellowM;
-  var crs;
-  oxo.elements.onCollisionWithElementOnce(yellowM, ennemy, function() {
+function collide(){
+  yellowM;
+  crs;
+  oxo.elements.onCollisionWithElementOnce(yellowM, crs, function() {
   // Character is touched by ennemy
   console.log("prout")
 });
+}
 
 
 

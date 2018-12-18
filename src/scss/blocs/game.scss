@@ -1,5 +1,45 @@
 .game__char {
-  width: 40px;
-  height: 40px;
+  position: absolute;
+  width: 80px;
+  height: 80px;
 }
 
+
+.game__crs {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-image: url("../media/character/crs.png");
+  background-size: cover;
+}
+
+.game__thug1 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-image: url('../media/character/casseurs.png');
+  background-size: cover;
+}
+
+.game__thug2 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-image: url('../media/character/casseurs2.png');
+  background-size: cover;
+}
+
+.game__trash1 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-image: url("../media/obstacles/trash1.png");
+  background-size: cover;
+}
+
+.game__trash2 {
+  width: 80px;
+  height: 80px;
+  background-image: url("../media/obstacles/trash2.png");
+  background-size: cover;
+}

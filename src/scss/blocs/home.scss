@@ -1,0 +1,40 @@
+
+.home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'VT323', monospace;
+  background-color : black;
+  color: white;
+  overflow: none;
+  
+
+  .home__title {
+    font-size: 60px;
+    margin-top: 5%;
+    margin-bottom:3%;  
+  }
+
+  .home__subtitle {
+    font-size : 34px;
+  }
+
+  .home__button{
+    background-color: black;
+    border: solid 3px white ;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+  }
+
+  .home__credit {
+    font-size : 14px;
+  }
+}

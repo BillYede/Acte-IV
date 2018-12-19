@@ -31,23 +31,47 @@ oxo.inputs.listenKey('enter', function() {
 function game() {
   direction=nextdirection="down";
   oxo.player.setScore(0)
-  bar = document.getElementById('bar')
+  bar = document.getElementById('bar');
   yellowM = document.getElementById('yellowM');
-  oxo.animation.setPosition(yellowM, {x: 580, y:560});
+  oxo.animation.setPosition(yellowM, {x: 580, y:500});
   oxo.animation.moveElementWithArrowKeys(yellowM, speed); // Move the character
   healthSelect = document.querySelectorAll(".health");
-
-  crsTimeout = setInterval(addCrs, 100);
-  thug1Timeout = setInterval(addThug1, 5000);
+  crsTimeout = setInterval(addCrs, 3000);
+  thug1Timeout = setInterval(addThug1, 2000);
 
   addCrs();
   addThug1();
+  addBorder();
   // move();
   // movetwo();
   
   moveInterval = setInterval(move, 10);
   moveInterval = setInterval(movetwo, 10);
 };
+
+function addBorder() {
+  var borderLeft = oxo.elements.createElement({
+    class: 'game__border--left', // optional,
+    obstacle: true, // optional,
+    styles: { // optional
+      transform: 'translate(200px, 0px)'
+    },
+  });
+  var borderRight = oxo.elements.createElement({
+    class: 'game__border--right', // optional,
+    obstacle: true, // optional,
+    styles: { // optional
+      transform: 'translate(1080px, 0px)'
+    },
+  });
+  var borderBottom = oxo.elements.createElement({
+    class: 'game__border--bottom', // optional,
+    obstacle: true, // optional,
+    styles: { // optional
+      transform: 'translate(0px, 680px)'
+    },
+  });
+}
 
 
 function addCrs() {

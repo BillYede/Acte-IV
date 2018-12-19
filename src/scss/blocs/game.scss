@@ -84,3 +84,25 @@
   height: 50px;
   margin: 10px;
 }
+
+.game__border--left {
+  width: 1px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+}
+
+.game__border--right {
+  width: 1px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+
+
+}
+.game__border--bottom{
+  width: 1280px;
+  height: 1px;
+  position: absolute;
+  top: 0;
+}

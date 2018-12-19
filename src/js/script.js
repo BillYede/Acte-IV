@@ -13,7 +13,8 @@ var size = 80; // The size of a yellow jacket
 var sizeEnemy = 80; // The size of obstacles
 var xSquares = 1280 / 80; // Number of square on x axis
 var ySquares = 240 / 80; // Number of square on y axis
-var speed = 100; // The speed of the game
+var speed = 300; // The speed of the game
+var bar;
 // var turnInterval; // The periodic call to the turn function
 // var bonusInterval; // The periodic call to the addBonus function
 // var moveInterval;
@@ -30,13 +31,14 @@ oxo.inputs.listenKey('enter', function() {
 function game() {
   direction=nextdirection="down";
   oxo.player.setScore(0)
+  bar = document.getElementById('bar')
   yellowM = document.getElementById('yellowM');
-  oxo.animation.setPosition(yellowM, {x: 580, y:720});
+  oxo.animation.setPosition(yellowM, {x: 580, y:560});
   oxo.animation.moveElementWithArrowKeys(yellowM, speed); // Move the character
   healthSelect = document.querySelectorAll(".health");
 
-  crsTimeout = setInterval(addCrs, 2000);
-  thug1Timeout = setInterval(addThug1, 3000);
+  crsTimeout = setInterval(addCrs, 100);
+  thug1Timeout = setInterval(addThug1, 5000);
 
   addCrs();
   addThug1();
@@ -55,13 +57,16 @@ function addCrs() {
     styles: {
       transform:
         'translate(' +
-        oxo.utils.getRandomNumber(0, xSquares -1) * sizeEnemy +
+        oxo.utils.getRandomNumber(0,760) +
         'px, ' +
-        oxo.utils.getRandomNumber(0, ySquares -1) * sizeEnemy +
+        oxo.utils.getRandomNumber(0,240) +
         'px)',
     },
+    appendTo: ".game__street",
   });
-
+    oxo.elements.onCollisionWithElement(bar, crs, function() {
+    crs.remove();
+  }, false);
 
     oxo.elements.onCollisionWithElement(yellowM, crs, function() {
       // Character is touched by ennemy
@@ -89,19 +94,23 @@ function addThug1() {
       styles: {
         transform:
           'translate(' +
-          oxo.utils.getRandomNumber(0, xSquares -1) * sizeEnemy +
+          oxo.utils.getRandomNumber(0, 760) +
           'px, ' +
-          oxo.utils.getRandomNumber(0, ySquares -1) * sizeEnemy +
+          oxo.utils.getRandomNumber(0,240) +
             'px)',
       },
+      appendTo: ".game__street",
     });
-
+    oxo.elements.onCollisionWithElement(bar, thug1, function() {
+      thug1.remove();
+    }, false);
 
     oxo.elements.onCollisionWithElement(yellowM, thug1, function() {
       // Character is touched by ennemy
       console.log("thug1")
       lives--;
       healthSelect[lives].classList.remove('health');
+      thug1.remove();
 
       console.log("nb vies "+ lives); 
       if (lives === 0){

@@ -13,6 +13,16 @@
   width: 100vw;
   animation: backgroundScroll 60s linear infinite;
   }
+// .game__pavement {
+//   width:200px;
+//   height: 600px;
+// }
+.game__street {
+  margin-left: 200px;
+  margin-right: 200px;
+  width: 880px;
+  height: 600px;
+}
   
   @keyframes backgroundScroll {
     from {
@@ -26,14 +36,16 @@
 
 .bar {
   width: 100vw;
-  height:20vh;
+  height:20%;
 }
 
 
 .game__char {
+  background-image: url("../media/character/hero-m-back.png");
   position: absolute;
   width: 80px;
   height: 80px;
+  background-size: cover;
 }
 
   .game__enemy--crs {

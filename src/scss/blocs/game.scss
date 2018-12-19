@@ -1,39 +1,35 @@
-// .game__zone {
-//   height: 80vh;
-//   width: 100vw;
-//   background-image: url('../media/deco/background1.jpg');
-//   background-repeat: no-repeat;
-//   // animation: animback 5s infinite;
-//   position: relative;
-// }
-// // @keyframes animback {
-// //   33% {background-image: url('../media/deco/background1.jpg')}
-// //   66% {background-image: url('../media/deco/background1.jpg')}
-// // }
+.container {
+  overflow: hidden;
+  width: 100vw;
+  height: 80vh;
 
-// .game_zone {
-//   width: 100vw;
-//   height: 80vh;
-//   overflow: hidden;
-//   border: 3px solid #F2F2F2;
-// }
+}
+.game__zone {
+  background: url("../media/deco/background1.jpg");
+  background-repeat: repeat-y;
+  background-size : 100vw;
+  
+  height: 80vh;
+  width: 100vw;
+  animation: backgroundScroll 60s linear infinite;
+  }
+  
+  @keyframes backgroundScroll {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 0 600px;
+    }
+  }
 
-// .game_zone ul {
-//    /* 4 images donc 4 x 100% */
-//   width: 100vw;
-//   height: 400%;
-//   padding:0; margin:0;
-//   list-style: none;
-// }
-// .game_zone li {
-//   float: left;
-// }
 
-// .bar {
-//   background-color : black;
-//   height: 20%;
-//   width: 100%;
-// }
+.bar {
+  width: 100vw;
+  height:20vh;
+}
+
+
 .game__char {
   position: absolute;
   width: 80px;

@@ -1,6 +1,9 @@
 var yellowM; // the Male yellow jacket
-// var yellowF; // the Female yellow jacket
 var direction;
+var lives = 3;
+var livesText;
+var lifeLostText;
+var score =0;
 
 var yellowPosition; // The position of the yellow jacket
 var size = 80; // The size of a yellow jacket
@@ -21,18 +24,13 @@ oxo.inputs.listenKey('enter', function() {
 
 
 function game() {
-  
-  direction= 'down';
   oxo.player.setScore(0)
   yellowM = document.getElementById('yellowM');
   oxo.animation.setPosition(yellowM, {x: 580, y:720});
   oxo.animation.moveElementWithArrowKeys(yellowM, speed); // Move the character
-  
-  
+
   addCrs();
   addThug1();
-  
-  
 };
 
 
@@ -47,18 +45,17 @@ function addCrs() {
           'px, ' +
           oxo.utils.getRandomNumber(0, ySquares -1) * sizeEnemy +
           'px)',
-        
-        
       },
-      
     });
   
-  
+    
     oxo.elements.onCollisionWithElement(yellowM, crs, function() {
       // Character is touched by ennemy
-      console.log("prout")
-      });
+      console.log("prout");
+      // if(lives)
 
+      });
+    
     setTimeout(addCrs, 2000);
   };
 

@@ -1,8 +1,8 @@
 var yellowM; // the Male yellow jacket
 var direction;
-var lives = 3;
-var livesText;
-var lifeLostText;
+var lives =3;
+var health;
+var health_select;
 var score =0;
 
 var yellowPosition; // The position of the yellow jacket
@@ -28,33 +28,46 @@ function game() {
   yellowM = document.getElementById('yellowM');
   oxo.animation.setPosition(yellowM, {x: 580, y:720});
   oxo.animation.moveElementWithArrowKeys(yellowM, speed); // Move the character
-
+  health_select = document.querySelectorAll(".health");
   addCrs();
   addThug1();
 };
 
-
-
+// function displayLife(lifeNumber) {
+//   lives.innerHTML = '';
+//   for (var i = 0; i < lifeNumber; i++){
+//       lives.innerHTML += "<3"
+//   }
+// }
 function addCrs() {
   var crs=oxo.elements.createElement({
-      class: 'game__enemy--crs',
-      styles: {
-        transform:
-          'translate(' +
-          oxo.utils.getRandomNumber(0, xSquares -1) * sizeEnemy +
-          'px, ' +
-          oxo.utils.getRandomNumber(0, ySquares -1) * sizeEnemy +
-          'px)',
-      },
-    });
+    class: 'game__enemy--crs',
+    styles: {
+      transform:
+        'translate(' +
+        oxo.utils.getRandomNumber(0, xSquares -1) * sizeEnemy +
+        'px, ' +
+        oxo.utils.getRandomNumber(0, ySquares -1) * sizeEnemy +
+        'px)',
+    },
+  });
   
     
     oxo.elements.onCollisionWithElement(yellowM, crs, function() {
       // Character is touched by ennemy
-      console.log("prout");
-      // if(lives)
+      console.log("crs");
+      //si plus de vie alors => end
+      lives--;
+      health_select[lives].classList.remove('health');
 
-      });
+      console.log("nb vies "+ lives); 
+      if (lives === 0){
+          oxo.screens.loadScreen('end',);
+
+      }
+  }, false)
+
+  
     
     setTimeout(addCrs, 2000);
   };
@@ -73,8 +86,17 @@ function addThug1() {
     });
     oxo.elements.onCollisionWithElement(yellowM, thug1, function() {
       // Character is touched by ennemy
-      console.log("prout2")
-    });
+      console.log("thug1")
+      lives--;
+      health_select[lives].classList.remove('health');
+
+      console.log("nb vies "+ lives); 
+      if (lives === 0){
+          oxo.screens.loadScreen('end',);
+          
+      }
+  }, false)
+    
 
     setTimeout(addThug1, 3000);
 };

@@ -15,8 +15,6 @@ var walkerTimeout;
 var yellowPosition;
 var size = 80;
 var sizeEnemy = 80;
-var xSquares = 1280 / 80;
-var ySquares = 240 / 80;
 var speed = 300;
 var bar;
 var score;
@@ -25,14 +23,13 @@ var speedDeco = 40;
 var yellowScore = 0;
 
 oxo.inputs.listenKey('c', function () {
-  if (oxo.screens.getCurrentScreen !== 'game') {
     console.log('game');
     oxo.screens.loadScreen('win', win);
   }
-});
+);
 
 oxo.inputs.listenKey('enter', function () {
-  if (oxo.screens.getCurrentScreen !== 'game') {
+  if (oxo.screens.getCurrentScreen != 'game') {
     console.log('game');
     oxo.screens.loadScreen('game', game);
   }
@@ -80,9 +77,9 @@ function game() {
   setInterval(function () {
     console.log(speedChar - 10);
 
-    speedChar = speedChar - 0.05;
+    speedChar = speedChar - 0.01;
     moveInterval = setInterval(move, speedChar);
-  }, 30000);
+  }, 35000);
 
   moveInterval = setInterval(movetwo, speedDeco);
   setInterval(function () {
@@ -90,7 +87,7 @@ function game() {
 
     speedDeco = speedDeco - 0.05;
     moveInterval = setInterval(move, speedDeco);
-  }, 30000);
+  }, 35000);
 
 
   addCar();
@@ -144,7 +141,7 @@ function addCrs() {
       transform: 'translate(' +
         oxo.utils.getRandomNumber(200, 960) +
         'px, ' +
-        oxo.utils.getRandomNumber(200, 240) +
+        oxo.utils.getRandomNumber(0, 180) +
         'px)',
     },
     appendTo: ".game__street",
@@ -181,7 +178,7 @@ function addThug1() {
       transform: 'translate(' +
         oxo.utils.getRandomNumber(200, 960) +
         'px, ' +
-        oxo.utils.getRandomNumber(0, 240) +
+        oxo.utils.getRandomNumber(0, 180) +
         'px)',
     },
     appendTo: ".game__street",
@@ -217,7 +214,7 @@ function addTrash() {
       transform: 'translate(' +
         oxo.utils.getRandomNumber(200, 960) +
         'px, ' +
-        oxo.utils.getRandomNumber(0, 240) +
+        oxo.utils.getRandomNumber(0, 180) +
         'px)',
     },
     appendTo: ".game__street",
@@ -256,7 +253,7 @@ function addFence() {
       transform: 'translate(' +
         oxo.utils.getRandomNumber(200, 960) +
         'px, ' +
-        oxo.utils.getRandomNumber(0, 240) +
+        oxo.utils.getRandomNumber(0, 180) +
         'px)',
     },
     appendTo: ".game__street",
@@ -293,7 +290,7 @@ function addCar() {
       transform: 'translate(' +
         oxo.utils.getRandomNumber(200, 960) +
         'px, ' +
-        oxo.utils.getRandomNumber(0, 240) +
+        oxo.utils.getRandomNumber(0, 180) +
         'px)',
     },
     appendTo: ".game__street",
@@ -326,7 +323,7 @@ function addWalker() {
       transform: 'translate(' +
         oxo.utils.getRandomNumber(200, 960) +
         'px, ' +
-        oxo.utils.getRandomNumber(0, 240) +
+        oxo.utils.getRandomNumber(0, 180) +
         'px)',
     },
     appendTo: ".game__street",
@@ -341,7 +338,7 @@ function addWalker() {
     oxo.elements.createElement({
       class: 'game__char--manif',
       styles: {
-        transform: 'translate(' + [oxo.utils.getRandomNumber(-200, 0), oxo.utils.getRandomNumber(880, 1000)][oxo.utils.getRandomNumber(0, 1)] +
+        transform: 'translate(' + [oxo.utils.getRandomNumber(-200, 0), oxo.utils.getRandomNumber(920, 1000)][oxo.utils.getRandomNumber(0, 1)] +
           'px, ' +
           oxo.utils.getRandomNumber(0, 600) +
           'px)',
@@ -349,11 +346,11 @@ function addWalker() {
       appendTo: ".game__street",
     });
     yellowScore++;
-    document.querySelector('.game__yellowScore').innerText = yellowScore + ' Gilets Jaunes !';
+    document.querySelector('.game__yellowScore').innerText = yellowScore*100 + ' GJ dans votre manif !';
     console.log(yellowScore)
     walker.remove();
 
-    if (yellowScore === 10) {
+    if (yellowScore === 5) {
       oxo.screens.loadScreen('win', win);
 
     }
@@ -427,4 +424,5 @@ function end() {
   clearInterval(fenceTimeout);
   clearInterval(trashTimeout);
   yellowScore = 0;
+  clearInterval()
 };

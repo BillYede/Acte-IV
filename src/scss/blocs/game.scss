@@ -109,7 +109,7 @@
   position: absolute;
   width: 80px;
   height: 80px;
-  background-size: cover;
+  background-size: contain;
   background-image: url("../media/gifpng/barrier80px.gif");
 }
 
@@ -170,22 +170,24 @@
     top : 85%;
     left: 90%;
 
-    .game__score--timer {
-    font-family: 'VT323', monospace;
-    font-size: 60px;
-    position: fixed;
-    color: white;
-    top : 85%;
-    left: 85%;
-    }
+    
   }
 }
+.game__score--timer {
+  font-family: 'VT323', monospace;
+  font-size: 60px;
+  position: fixed;
+  color: white;
+  top : 85%;
+  left: 75%;
+  z-index: 1;
+  }
 
 .game__yellowScore {
   font-family: 'VT323', monospace;
   font-size: 60px;
   position: fixed;
   top: 85%;
-  left: 35%;
+  left: 25%;
   color: white;
 }

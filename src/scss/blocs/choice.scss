@@ -1,0 +1,56 @@
+.choice{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'VT323', monospace;
+  background-color : black;
+  color: white;
+  overflow: none;
+}
+
+.choice__title {
+  font-size: 60px;
+  margin-top: 3%;
+  font-family: 'VT323', monospace; 
+}
+
+.choice__subtitle {
+  font-size: 30px;
+  font-family: 'VT323', monospace;
+  margin-top: 15px;
+}
+
+.choice__button {
+  background-color: black;
+  border: solid 2px white ;
+  border-radius: 3%;
+  color: white;
+  padding: 10px 20px 10px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 5px;
+  cursor: pointer;
+  font-family: 'VT323', monospace;
+}
+
+.choice__sexe {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.choice__homme {
+  display: flex;
+  flex-direction: column;
+}
+.choice__femme {
+  display: flex;
+  flex-direction: column;
+}
+.choice__picture {
+  height: 300px;
+  width: 300px;
+}

@@ -22,6 +22,8 @@ var score;
 // var bonusInterval; // The periodic call to the addBonus function
 // var moveInterval;
 
+
+
 oxo.inputs.listenKey('space', function() {
   if (oxo.screens.getCurrentScreen !== 'game') {
     console.log('game');
@@ -33,6 +35,13 @@ oxo.inputs.listenKey('enter', function() {
   if (oxo.screens.getCurrentScreen !== 'game') {
     console.log('game');
     oxo.screens.loadScreen('game', game);
+  }
+});
+
+oxo.inputs.listenKey('c', function() {
+  if (oxo.screens.getCurrentScreen !== 'game') {
+    console.log('game');
+    oxo.screens.loadScreen('choice');
   }
 });
 

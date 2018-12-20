@@ -47,6 +47,8 @@
 
 .game__enemy--crs {
   position: absolute;
+  left: 0;
+  top: 0;
   width: 80px;
   height: 80px;
   background-size: cover;
@@ -55,6 +57,8 @@
 
 .game__enemy--thug1 {
   position: absolute;
+  left: 0;
+  top: 0;
   width: 80px;
   height: 80px;
   background-size: cover;
@@ -62,6 +66,8 @@
 }
 
 .game__enemy--thug2 {
+  left: 0;
+  top: 0;
   position: absolute;
   width: 80px;
   height: 80px;
@@ -70,6 +76,8 @@
 }
 
 .game__enemy--trash {
+  left: 0;
+  top: 0;
   position: absolute;
   width: 80px;
   height: 80px;
@@ -78,6 +86,8 @@
 }
 
 .game__enemy--fence {
+  left: 0;
+  top: 0;
   position: absolute;
   width: 80px;
   height: 80px;

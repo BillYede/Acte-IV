@@ -18,6 +18,8 @@ var ySquares = 240 / 80; // Number of square on y axis
 var speed = 300; // The speed of the game
 var bar;
 var score;
+var speedChar= 10;
+var speedDeco= 40;
 // var turnInterval; // The periodic call to the turn function
 // var bonusInterval; // The periodic call to the addBonus function
 // var moveInterval;
@@ -49,14 +51,14 @@ oxo.inputs.listenKey('c', function() {
 function game() {
   direction=nextDirection="down";
   oxo.player.setScore(0);
-	
+  
   bar = document.getElementById('bar');
   yellowM = document.getElementById('yellowM');
   oxo.animation.setPosition(yellowM, {x: 580, y:500});
   oxo.animation.moveElementWithArrowKeys(yellowM, speed); // Move the character
   healthSelect = document.querySelectorAll(".health");
   crsTimeout = setInterval(addCrs, 3000);
-  thug1Timeout = setInterval(addThug1, 2000);
+  thug1Timeout = setInterval(addThug1, 5000);
   trashTimeout = setInterval(addTrash, 6000);
   fenceTimeout = setInterval(addFence, 4000);
   
@@ -64,7 +66,23 @@ function game() {
 		oxo.player.addToScore(1);
   }, 1000);
  
+  moveInterval = setInterval(move, speedChar);
   
+
+  setInterval(function(){
+    console.log(speedChar-10);
+    
+    speedChar = speedChar-0.05;
+    moveInterval = setInterval(move, speedChar);
+  }, 30000);
+
+  moveInterval = setInterval(movetwo, speedDeco);
+  setInterval(function(){
+    console.log(speedDeco-10);
+    
+    speedDeco = speedDeco-0.05;
+    moveInterval = setInterval(move, speedDeco);
+  }, 30000);
   
   
 
@@ -76,9 +94,9 @@ function game() {
   addFence();
   // move();
   // movetwo();
+  console.log('coucou');
+  // moveInterval = setInterval(move, speedChar);
   
-  moveInterval = setInterval(move, 10);
-  moveInterval = setInterval(movetwo, 40);
   
 };
 
@@ -114,9 +132,9 @@ function addCrs() {
     styles: {
       transform:
         'translate(' +
-        oxo.utils.getRandomNumber(0,760) +
+        oxo.utils.getRandomNumber(200,960) +
         'px, ' +
-        oxo.utils.getRandomNumber(0,240) +
+        oxo.utils.getRandomNumber(200,240) +
         'px)',
     },
     appendTo: ".game__street",
@@ -151,7 +169,7 @@ function addThug1() {
       styles: {
         transform:
           'translate(' +
-          oxo.utils.getRandomNumber(0, 760) +
+          oxo.utils.getRandomNumber(200, 960) +
           'px, ' +
           oxo.utils.getRandomNumber(0,240) +
             'px)',
@@ -187,7 +205,7 @@ function addTrash() {
     styles: {
       transform:
         'translate(' +
-        oxo.utils.getRandomNumber(0,760) +
+        oxo.utils.getRandomNumber(200,960) +
         'px, ' +
         oxo.utils.getRandomNumber(0,240) +
         'px)',
@@ -224,7 +242,7 @@ function addFence() {
     styles: {
       transform:
         'translate(' +
-        oxo.utils.getRandomNumber(0,900) +
+        oxo.utils.getRandomNumber(200,960) +
         'px, ' +
         oxo.utils.getRandomNumber(0,240) +
         'px)',
@@ -240,7 +258,9 @@ function addFence() {
       console.log("fence");
       //si plus de vie alors => end
       lives--;
-      healthSelect[lives].classList.remove('health');
+      if (healthSelect[lives]) {
+        healthSelect[lives].classList.remove('health');
+      }
       fence.remove();
 
       console.log("nb vies "+ lives); 
@@ -267,6 +287,8 @@ function move() {
 function movetwo() {
   var trash = document.querySelectorAll('.game__enemy--trash');
   var fence = document.querySelectorAll('.game__enemy--fence');
+  console.log(fence.length);
+
   for (let i = 0; i < fence.length; i++) {
     oxo.animation.move(fence[i], direction, 4); 
   }
@@ -274,6 +296,8 @@ function movetwo() {
     oxo.animation.move(trash[i], direction, 4); 
   }
 };
+
+
 
 
 

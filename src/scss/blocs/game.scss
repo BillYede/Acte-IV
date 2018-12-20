@@ -11,7 +11,7 @@
   
   height: 80vh;
   width: 100vw;
-  animation: backgroundScroll 60s linear infinite;
+  animation: backgroundScroll 800s linear infinite;
   }
 // .game__pavement {
 //   width:200px;
@@ -24,20 +24,17 @@
   height: 600px;
 }
   
-  @keyframes backgroundScroll {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: 0 600px;
-    }
+@keyframes backgroundScroll {
+  from {
+    background-position: 0 0;
   }
-
-
-.bar {
-  width: 100vw;
-  height:20%;
+  to {
+    background-position: 0 80000px;
+  }
 }
+
+
+
 
 
 .game__char {
@@ -48,42 +45,48 @@
   background-size: cover;
 }
 
-  .game__enemy--crs {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background-size: cover;
-    background-image: url("../media/character/crs.png");
-  }
-
-  .game__enemy--thug1 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background-size: cover;
-    background-image: url('../media/character/casseurs.png');
-  }
-
-  .game__enemy game__enemy--thug2 {
-    background-image: url('../media/character/casseurs2.png');
-  }
-
-  .game__enemy game__enemy--trash1 {
-    background-image: url("../media/obstacles/trash1.png");
-  }
-
-  
-
-  .game__enemy game__enemy--trash2 {
-    background-image: url("../media/obstacles/trash2.png");
-  }
-
-.health {
-  background-color: red;
-  width: 50px;
-  height: 50px;
-  margin: 10px;
+.game__enemy--crs {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-image: url("../media/character/crs.png");
 }
+
+.game__enemy--thug1 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-image: url('../media/character/casseurs.png');
+}
+
+.game__enemy--thug2 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-image: url('../media/character/casseurs2.png');
+}
+
+.game__enemy--trash {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-image: url("../media/obstacles/trash1.png");
+}
+
+.game__enemy--fence {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-image: url("../media/assets/bareer.png");
+}
+
+
+
 
 .game__border--left {
   width: 1px;
@@ -105,4 +108,26 @@
   height: 1px;
   position: absolute;
   top: 0;
+}
+
+.bar {
+  width: 100vw;
+  height:20%;
+  display: flex;
+  background-color: black;
+
+  .health {
+    width: 50px;
+    height: 50px;
+    margin-top: 75px;
+    background-image: url('../media/assets/heart.png');
+    background-size: cover center;
+    background-repeat: no-repeat;
+  }
+  .game__score {
+    font-family: 'VT323', monospace;
+    font-size: 60px;
+    position: fixed;
+    color: white;
+  }
 }

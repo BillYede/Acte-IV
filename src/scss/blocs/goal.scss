@@ -1,0 +1,42 @@
+.goal {
+  height: 100vh;
+  font-family: 'VT323', monospace;
+  background-color : black;
+  color: white;
+  overflow: none;  
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.goal__header--title{
+  font-size: 60px;
+  margin-top: 5%;
+  margin-bottom:3%;
+}
+
+.goal__main {
+  display:flex;
+  flex-direction: row;
+  margin-bottom: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.goal__section {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  text-align: center;
+  
+  .goal__title {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    font-size: 48px;
+  }
+
+  .goal__p {
+    font-size: 26px;
+  }
+}
+

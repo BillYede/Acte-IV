@@ -1,4 +1,4 @@
-var yellowM; // the Male yellow jacket
+var yellowM;
 var walkerInstance;
 var direction;
 var nextDirection;
@@ -12,22 +12,17 @@ var thug1Timeout;
 var trashTimeout;
 var fenceTimeout;
 var walkerTimeout;
-var yellowPosition; // The position of the yellow jacket
-var size = 80; // The size of a yellow jacket
-var sizeEnemy = 80; // The size of obstacles
-var xSquares = 1280 / 80; // Number of square on x axis
-var ySquares = 240 / 80; // Number of square on y axis
-var speed = 300; // The speed of the game
+var yellowPosition;
+var size = 80;
+var sizeEnemy = 80;
+var xSquares = 1280 / 80;
+var ySquares = 240 / 80;
+var speed = 300;
 var bar;
 var score;
 var speedChar = 10;
 var speedDeco = 40;
 var yellowScore = 0;
-// var turnInterval; // The periodic call to the turn function
-// var bonusInterval; // The periodic call to the addBonus function
-// var moveInterval;
-
-
 
 oxo.inputs.listenKey('c', function () {
   if (oxo.screens.getCurrentScreen !== 'game') {
@@ -309,7 +304,6 @@ function addCar() {
 
   oxo.elements.onCollisionWithElement(yellowM, car, function () {
     document.getElementById('soundCollision').play();
-    //si plus de vie alors => end
     lives--;
     if (healthSelect[lives]) {
       healthSelect[lives].classList.remove('health');
@@ -323,8 +317,6 @@ function addCar() {
     }
   }, false)
 
-
-  // setTimeout(addCrs, 2000);
 };
 
 function addWalker() {
@@ -367,8 +359,6 @@ function addWalker() {
     }
   }, false)
 
-
-  // setTimeout(addCrs, 2000);
 };
 
 function move() {

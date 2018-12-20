@@ -169,6 +169,15 @@
     color: white;
     top : 85%;
     left: 90%;
+
+    .game__score--timer {
+    font-family: 'VT323', monospace;
+    font-size: 60px;
+    position: fixed;
+    color: white;
+    top : 85%;
+    left: 85%;
+    }
   }
 }
 

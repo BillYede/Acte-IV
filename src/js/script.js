@@ -10,6 +10,7 @@ var crsTimeout;
 var thug1Timeout;
 var trashTimeout;
 var fenceTimeout;
+var walkerTimeout;
 var yellowPosition; // The position of the yellow jacket
 var size = 80; // The size of a yellow jacket
 var sizeEnemy = 80; // The size of obstacles
@@ -20,6 +21,7 @@ var bar;
 var score;
 var speedChar= 10;
 var speedDeco= 40;
+var yellowScore =0;
 // var turnInterval; // The periodic call to the turn function
 // var bonusInterval; // The periodic call to the addBonus function
 // var moveInterval;
@@ -61,6 +63,7 @@ function game() {
   thug1Timeout = setInterval(addThug1, 5000);
   trashTimeout = setInterval(addTrash, 6000);
   fenceTimeout = setInterval(addFence, 4000);
+  walkerTimeout = setInterval(addWalker, 10000);
   
   timer = setInterval(function() {
 		oxo.player.addToScore(1);
@@ -86,7 +89,7 @@ function game() {
   
   
 
-
+  addWalker();
   addCrs();
   addThug1();
   addBorder();
@@ -148,7 +151,9 @@ function addCrs() {
       console.log("crs");
       //si plus de vie alors => end
       lives--;
-      healthSelect[lives].classList.remove('health');
+      if (healthSelect[lives]) {
+        healthSelect[lives].classList.remove('health');
+      }
       crs.remove();
 
       console.log("nb vies "+ lives); 
@@ -184,7 +189,9 @@ function addThug1() {
       // Character is touched by ennemy
       console.log("thug1")
       lives--;
-      healthSelect[lives].classList.remove('health');
+      if (healthSelect[lives]) {
+        healthSelect[lives].classList.remove('health');
+      }
       thug1.remove();
 
       console.log("nb vies "+ lives); 
@@ -221,7 +228,9 @@ function addTrash() {
       console.log("trash");
       //si plus de vie alors => end
       lives--;
-      healthSelect[lives].classList.remove('health');
+      if (healthSelect[lives]) {
+        healthSelect[lives].classList.remove('health');
+      }
       trash.remove();
 
       console.log("nb vies "+ lives); 
@@ -273,6 +282,48 @@ function addFence() {
     
     // setTimeout(addCrs, 2000);
   };  
+
+
+  function addWalker() {
+    console.log('fence')
+    var walker=oxo.elements.createElement({
+      class: 'game__enemy--walker',
+      styles: {
+        transform:
+          'translate(' +
+          oxo.utils.getRandomNumber(200,960) +
+          'px, ' +
+          oxo.utils.getRandomNumber(0,240) +
+          'px)',
+      },
+      appendTo: ".game__street",
+    });
+      oxo.elements.onCollisionWithElement(bar, walker, function() {
+      walker.remove();
+    }, false);
+  
+      oxo.elements.onCollisionWithElement(yellowM, walker, function() {
+        // Character is touched by ennemy
+        console.log("walker");
+        //si plus de vie alors => end
+        yellowScore++;
+        console.log(yellowScore)
+        if (healthSelect[lives]) {
+          healthSelect[lives].classList.remove('health');
+        }
+        walker.remove();
+  
+        
+        if (yellowScore === 100){
+            oxo.screens.loadScreen('end', end);
+  
+        }
+    }, false)
+    
+      
+      // setTimeout(addCrs, 2000);
+    };  
+
 function move() {
   var thug1 = document.querySelectorAll('.game__enemy--thug1');
   var crs = document.querySelectorAll('.game__enemy--crs');
@@ -287,13 +338,16 @@ function move() {
 function movetwo() {
   var trash = document.querySelectorAll('.game__enemy--trash');
   var fence = document.querySelectorAll('.game__enemy--fence');
-  console.log(fence.length);
-
+  var walker= document.querySelectorAll('game__enemy--walker');
   for (let i = 0; i < fence.length; i++) {
     oxo.animation.move(fence[i], direction, 4); 
   }
   for (let i = 0; i < trash.length; i++) {
     oxo.animation.move(trash[i], direction, 4); 
+    
+  }
+  for (let i = 0; i < walker.length; i++) {
+    oxo.animation.move(walker[i], direction, 4); 
   }
 };
 

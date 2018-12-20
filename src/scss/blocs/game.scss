@@ -82,7 +82,8 @@
   width: 80px;
   height: 80px;
   background-size: cover;
-  background-image: url("../media/obstacles/trash1.png");
+  background-repeat: no-repeat;
+  background-image: url("../media/gifpng/policecarfire.gif");
 }
 
 .game__enemy--fence {
@@ -92,7 +93,17 @@
   width: 80px;
   height: 80px;
   background-size: cover;
-  background-image: url("../media/assets/bareer.png");
+  background-image: url("../media/gifpng/barrier.gif");
+}
+
+.game__enemy--walker {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-image: url("../media/character/random2.png");
 }
 
 

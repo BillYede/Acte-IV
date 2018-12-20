@@ -8,6 +8,12 @@
     </ul>
   </div> -->
 
+  <!-- <object class="game__music" type="audio/mpeg" data="../songs/game.mp3" height="0" width="0">
+    <param name="filename" value="../songs/game.mp3" />
+    <param name="autostart" value="true" />
+    <param name="loop" value="true" />
+  </object> -->
+
 <section class='container'>
     <div data-oxo-speed="3.0" id='yellowM' class='game__char'>
         <!-- <img id ='yellowM' class="game__char" data-speed="3.0" src="../media/character/hero-m-back.png" alt="yellowm"> -->
@@ -23,7 +29,11 @@
   <article class="health"></article>
   <article class="health"></article>
   <article class="health"></article>
-  <article class="game__score" data-oxo-score></article>
+  <article class="game__score" data-oxo-score>Score</article>
   <div class= "game__yellowScore"></div>
-
 </section>
+
+<audio id='soundCollision'src="../media/sound/HIT_sound.wav"></audio>
+<audio id='soundAlly'src="../media/sound/PICKUP_Manif.wav"></audio>
+<audio id='soundInGame'src="../media/sound/8 Bit Universe.wav"></audio>
+<audio id='soundLoose'src="../media/sound/loose.mp3"></audio> 

@@ -5,10 +5,9 @@
 
 }
 .game__zone {
-  background: url("../media/deco/background1.jpg");
+  background: url("../media/deco/GameBackground_Infinite.jpg");
   background-repeat: repeat-y;
   background-size : 100vw;
-  
   height: 80vh;
   width: 100vw;
   animation: backgroundScroll 800s linear infinite;
@@ -63,6 +62,16 @@
   background-image: url("../media/character/crs.png");
 }
 
+.game__enemy--car {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-image: url("../media/gifpng/police80px.gif");
+}
+
 .game__enemy--thug1 {
   position: absolute;
   left: 0;
@@ -91,7 +100,7 @@
   height: 80px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("../media/gifpng/policecarfire.gif");
+  background-image: url("../media/gifpng/poubelle80px.gif");
 }
 
 .game__enemy--fence {
@@ -101,7 +110,7 @@
   width: 80px;
   height: 80px;
   background-size: cover;
-  background-image: url("../media/gifpng/barrier.gif");
+  background-image: url("../media/gifpng/barrier80px.gif");
 }
 
 .game__enemy--walker {
@@ -111,7 +120,7 @@
   width: 80px;
   height: 80px;
   background-size: cover;
-  background-image: url("../media/character/random2.png");
+  background-image: url("../media/character/random.png");
 }
 
 
@@ -158,6 +167,8 @@
     font-size: 60px;
     position: fixed;
     color: white;
+    top : 85%;
+    left: 90%;
   }
 }
 
@@ -165,7 +176,7 @@
   font-family: 'VT323', monospace;
   font-size: 60px;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 85%;
+  left: 35%;
   color: white;
 }

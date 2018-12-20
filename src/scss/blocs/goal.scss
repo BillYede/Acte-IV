@@ -1,42 +1,102 @@
+// .goal {
+//   height: 100vh;
+//   font-family: 'VT323', monospace;
+//   background-color : black;
+//   color: white;
+//   overflow: none;  
+//   align-items: center;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .goal__header--title{
+//   font-size: 60px;
+//   margin-top: 5%;
+//   margin-bottom:3%;
+// }
+
+// .goal__main {
+//   display:flex;
+//   flex-direction: row;
+//   margin-bottom: 3%;
+//   margin-left: 3%;
+//   margin-right: 3%;
+// }
+
+// .goal__section {
+//   display:flex;
+//   flex-direction:column;
+//   align-items: center;
+//   text-align: center;
+// }
+
+// .goal__title {
+//   margin-top: 2%;
+//   margin-bottom: 4%;
+//   font-size: 48px;
+// }
+
+// .goal__p {
+//   font-size: 26px;
+// }
+
 .goal {
   height: 100vh;
   font-family: 'VT323', monospace;
-  background-color : black;
+  background-color: black;
   color: white;
-  overflow: none;  
+  overflow: none;
   align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.goal__header--title{
-  font-size: 60px;
-  margin-top: 5%;
-  margin-bottom:3%;
-}
-
-.goal__main {
-  display:flex;
-  flex-direction: row;
-  margin-bottom: 3%;
-  margin-left: 3%;
-  margin-right: 3%;
-}
-
-.goal__section {
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-  text-align: center;
 }
 
 .goal__title {
+  font-size: 60px;
   margin-top: 2%;
-  margin-bottom: 4%;
-  font-size: 48px;
+  margin-bottom: 2%;
+  font-family: 'VT323', monospace;
+  color: white;
+  text-align: center;
 }
 
-.goal__p {
-  font-size: 26px;
+.goal__presentation {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  text-align: center;
 }
 
+.goal__subtitle {
+  margin-top: 5px;
+  font-size: 40px;
+  font-family: 'VT323', monospace;
+}
+
+.goal__instruction {
+  font-size: 20px;
+  margin-right: 100px;
+  margin-left: 90px;
+}
+
+.goal__instructions {
+  width: 70%;
+  margin-left: 130px;
+  margin-right: 130px;
+  margin-top: 20px;
+}
+
+.goal__button {
+  background-color: black;
+  border: solid 2px white;
+  border-radius: 3%;
+  color: white;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 5px;
+  cursor: pointer;
+  font-family: 'VT323', monospace;
+  margin-left: 600px;
+  margin-bottom: 0%;
+}

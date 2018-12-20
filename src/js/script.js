@@ -1,4 +1,5 @@
 var yellowM; // the Male yellow jacket
+var walkerInstance;
 var direction;
 var nextDirection;
 var lives =3;
@@ -53,7 +54,7 @@ oxo.inputs.listenKey('c', function() {
 function game() {
   direction=nextDirection="down";
   oxo.player.setScore(0);
-  
+  walkerInstance = document.querySelector('.game__enemy--walker');
   bar = document.getElementById('bar');
   yellowM = document.getElementById('yellowM');
   oxo.animation.setPosition(yellowM, {x: 580, y:500});
@@ -63,7 +64,13 @@ function game() {
   thug1Timeout = setInterval(addThug1, 5000);
   trashTimeout = setInterval(addTrash, 6000);
   fenceTimeout = setInterval(addFence, 4000);
-  walkerTimeout = setInterval(addWalker, 10000);
+  walkerTimeout = 
+  setInterval(()=>{
+    addWalker();
+    walkerInstance = document.querySelector('.game__enemy--walker');
+    }, 
+    10000
+  );
   
   timer = setInterval(function() {
 		oxo.player.addToScore(1);
@@ -90,11 +97,13 @@ function game() {
   
 
   addWalker();
+  walkerInstance = document.querySelector('.game__enemy--walker');
   addCrs();
   addThug1();
   addBorder();
   addTrash();
   addFence();
+  manif();
   // move();
   // movetwo();
   console.log('coucou');
@@ -305,17 +314,25 @@ function addFence() {
       oxo.elements.onCollisionWithElement(yellowM, walker, function() {
         // Character is touched by ennemy
         console.log("walker");
-        //si plus de vie alors => end
+        oxo.elements.createElement({
+          class: 'game__char--manif',
+          styles: {
+            transform:
+              'translate(' +
+              oxo.utils.getRandomNumber(200,960) +
+              'px, ' +
+              oxo.utils.getRandomNumber(0,240) +
+              'px)',
+          },
+          appendTo: ".game__street",
+        });
         yellowScore++;
+        document.querySelector('.game__yellowScore').innerText = yellowScore + ' Gilets Jaunes !';
         console.log(yellowScore)
-        if (healthSelect[lives]) {
-          healthSelect[lives].classList.remove('health');
-        }
         walker.remove();
-  
-        
-        if (yellowScore === 100){
-            oxo.screens.loadScreen('end', end);
+      
+        if (yellowScore === 5){
+            oxo.screens.loadScreen('win');
   
         }
     }, false)
@@ -351,14 +368,29 @@ function movetwo() {
   }
 };
 
+// oxo.elements.onCollisionWithElement(yellowM, walkerInstance, function() {
+//   function manif(){
+//     oxo.elements.createElement({
+//       class: 'game__char--manif',
+//       styles: {
+//         transform:
+//           'translate(' +
+//           oxo.utils.getRandomNumber(200,960) +
+//           'px, ' +
+//           oxo.utils.getRandomNumber(0,240) +
+//           'px)',
+//       },
+//       appendTo: ".game__street",
+//     });
+  
+//   }
+//   false
+// });
 
-
-
-
-function end(){
-  console.log('end')
+function end() {
   clearInterval(crsTimeout);
   clearInterval(thug1Timeout);
   clearInterval(fenceTimeout);
   clearInterval(trashTimeout);
- }
+  yellowScore = 0;
+};

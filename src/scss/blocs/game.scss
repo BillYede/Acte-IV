@@ -45,6 +45,14 @@
   background-size: cover;
 }
 
+.game__char--manif {
+  background-image: url("../media/character/hero-f-front.png");
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+}
+
 .game__enemy--crs {
   position: absolute;
   left: 0;
@@ -151,4 +159,13 @@
     position: fixed;
     color: white;
   }
+}
+
+.game__yellowScore {
+  font-family: 'VT323', monospace;
+  font-size: 60px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: white;
 }

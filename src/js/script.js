@@ -277,11 +277,10 @@ function movetwo() {
 
 
 
-
 function end(){
   console.log('end')
   clearInterval(crsTimeout);
   clearInterval(thug1Timeout);
   clearInterval(fenceTimeout);
   clearInterval(trashTimeout);
-}
+ }

@@ -1,1 +1,1 @@
-Echauffez vous pour samedi : https://acte-vi-gameboy.netlify.com/ 
+ https://acte-vi-gameboy.netlify.com/ 
